@@ -9,7 +9,7 @@ public class InputProcessor {
     }
 
     public void collectInputs() {
-        System.out.print("\nPlease enter three numbers: ");
+        System.out.print("\nPlease enter three numbers in the order A B C: ");
         Scanner scanner = new Scanner(System.in);
         inputs = new double[3];
         try {
