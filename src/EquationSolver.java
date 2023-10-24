@@ -10,7 +10,7 @@ public class EquationSolver {
     public EquationSolver(double[] _in) {
         inputs = _in;
         classifyInput();
-        if (!(classification == InputType.INFINITE_SOLUTION || classification == InputType.NO_SOLUTION)) {
+        if (!(classification == InputType.INFINITE_SOLUTIONS || classification == InputType.NO_SOLUTION)) {
             solve();
         }
     }
@@ -27,7 +27,7 @@ public class EquationSolver {
         if (inputs[0] == 0) {
             if (inputs[1] == 0) {
                 if (inputs[2] == 0) {
-                    classification = InputType.INFINITE_SOLUTION;
+                    classification = InputType.INFINITE_SOLUTIONS;
                 } else {
                     classification = InputType.NO_SOLUTION;
                 }
@@ -54,13 +54,14 @@ public class EquationSolver {
     }
 
     private void solveLinear() {
-
+        ComplexNumber rOne = new ComplexNumber(-inputs[2]/inputs[1],0);
+        outputs[0] = rOne;
     }
 
     private void solveQuadratic() {
         ComplexNumber base = new ComplexNumber(-inputs[1]/(2*inputs[0]),0);
         ComplexNumber rOne = new ComplexNumber(inputs[1],0);
-        rOne = ((rOne.mult(rOne)).sub(new ComplexNumber(4 * inputs[0] * inputs[1]))).sqrt();
+        rOne = ((rOne.mult(rOne)).sub(new ComplexNumber(4 * inputs[0] * inputs[1],0))).sqrt();
         if(classification == InputType.QUADRATIC_TWO){
             outputs = new ComplexNumber[2];
             ComplexNumber rTwo = base.add(rOne);
