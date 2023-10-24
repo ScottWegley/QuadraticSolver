@@ -33,7 +33,7 @@ class ComplexNumber {
     }
 
     public String toString() {
-        return real + (imag < 0 ? " - " : " + ") + imag + "i";
+        return real + (imag == 0 ? "" : (imag < 0 ? " - " : " + ") + (imag < 0 ? imag * -1 : imag) + "i");
     }
 
     public ComplexNumber add(ComplexNumber rhs) {
@@ -49,7 +49,7 @@ class ComplexNumber {
                 this.getReal() * rhs.getImag() + this.getImag() * rhs.getReal());
     }
 
-    public ComplexNumber div(ComplexNumber rhs) throws ArithmeticException{
+    public ComplexNumber div(ComplexNumber rhs) throws ArithmeticException {
         if (rhs.getReal() == 0 && rhs.getImag() == 0) {
             throw new ArithmeticException("Denominator cannot equal 0");
         }
