@@ -60,9 +60,13 @@ public class EquationSolver {
     private void solveQuadratic() {
         ComplexNumber base = new ComplexNumber(-inputs[1]/(2*inputs[0]),0);
         ComplexNumber rOne = new ComplexNumber(inputs[1],0);
-        rOne = (rOne.mult(rOne)).add((new ComplexNumber(4,0).mult(new ComplexNumber(inputs[0],0)).mult(new ComplexNumber(inputs[2],0))));
+        rOne = ((rOne.mult(rOne)).sub(new ComplexNumber(4 * inputs[0] * inputs[1]))).sqrt();
         if(classification == InputType.QUADRATIC_TWO){
             outputs = new ComplexNumber[2];
+            ComplexNumber rTwo = base.add(rOne);
+            outputs[1] = rTwo;
         }
+        rOne = base.sub(rOne);
+        outputs[0] = rOne;
     }
 }
