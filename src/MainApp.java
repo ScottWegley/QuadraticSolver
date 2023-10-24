@@ -1,10 +1,13 @@
 public class MainApp {
     public static void main(String[] args) {
         InputProcessor ip = new InputProcessor();
+        EquationSolver eq;
+        ip.collectInputs();
         if(!ip.isValid()){
-            
-        } else {
 
+        } else {
+            eq = new EquationSolver(ip.getInputs());
+            System.out.println(eq.getClassification());
         }
     }
 }
