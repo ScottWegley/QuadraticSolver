@@ -60,8 +60,8 @@ public class EquationSolver {
 
     private void solveQuadratic() {
         ComplexNumber base = new ComplexNumber(-inputs[1]/(2*inputs[0]),0);
-        ComplexNumber rOne = new ComplexNumber(inputs[1],0);
-        rOne = ((rOne.mult(rOne)).sub(new ComplexNumber(4 * inputs[0] * inputs[1],0))).sqrt();
+        ComplexNumber rOne = (new ComplexNumber(inputs[1] * inputs[1] - 4 * inputs[0] * inputs[2],0)).sqrt();
+        rOne = rOne.div(new ComplexNumber(2*inputs[0],0));
         if(classification == InputType.QUADRATIC_TWO){
             outputs = new ComplexNumber[2];
             ComplexNumber rTwo = base.add(rOne);

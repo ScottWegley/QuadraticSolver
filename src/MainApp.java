@@ -8,6 +8,9 @@ public class MainApp {
         } else {
             eq = new EquationSolver(ip.getInputs());
             System.out.println(eq.getClassification());
+            for (ComplexNumber c : eq.getOutputs()) {
+                System.out.println(c.toString());
+            }
         }
     }
 }
