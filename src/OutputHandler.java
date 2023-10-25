@@ -11,6 +11,10 @@ public class OutputHandler {
     }
 
     public void output() {
+        if(classification == null){
+            outputINV();
+            return;
+        }
         switch (classification) {
             case QUADRATIC_TWO:
                 outputQ2();
@@ -26,9 +30,6 @@ public class OutputHandler {
                 break;
             case INFINITE_SOLUTIONS:
                 outputINF();
-                break;
-            default:
-                outputINV();
                 break;
         }
     }
