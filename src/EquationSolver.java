@@ -54,7 +54,7 @@ public class EquationSolver {
     }
 
     private void solveLinear() {
-        ComplexNumber rOne = new ComplexNumber(-inputs[2]/inputs[1],0);
+        ComplexNumber rOne = new ComplexNumber(-inputs[1]/inputs[2],0);
         outputs[0] = rOne;
     }
 
